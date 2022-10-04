@@ -21,20 +21,22 @@ set autoindent
 set smartindent
 set path=.,**
 
-" ---- Set filetype detection and syntax highlighting ----"
+
+" ---- Set filetype detection and syntax highlighting ---- "
 filetype plugin indent on
 syntax on
+
+
+" ---- Set colorscheme ---- "
+colorscheme slate
+
 
 " ---- Set env variables ---- "
 let $RTP=split(&runtimepath,',')[0] 
 let $RC="$HOME/.vimrc" 
 
 
-
-
-
 " ---- REMAPS ---- "
-
 "move current line up 1 - normal mode
 nnoremap <C-j> :m .+1<CR>==             
 "move current line down 1 - normal mode
