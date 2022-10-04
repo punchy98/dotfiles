@@ -26,4 +26,10 @@ fi
 
 unset rc
 
+checkrb(){
+    for i in $(find . -name "*.rb"); do
+        echo $i; 
+        ruby -c $i;
+    done
+}
 
