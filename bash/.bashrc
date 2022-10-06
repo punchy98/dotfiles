@@ -26,6 +26,14 @@ fi
 
 unset rc
 
+
+
+alias vim='vimx'
+alias vi='vimx'
+
+
+#functions
+
 checkrb(){
     for i in $(find . -name "*.rb"); do
         echo $i; 
