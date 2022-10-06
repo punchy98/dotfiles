@@ -71,7 +71,7 @@ nnoremap L $
 "quicker escape
 inoremap jj <ESC>
 "set vimpaste keybind
-nnoremap <leader>p <C-V> 
+nnoremap <leader>p "+P 
 "open filetree and resize
 nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 20<CR>
 "split vim vertically
@@ -80,7 +80,6 @@ nnoremap <leader>vs :wincmd v <CR>
 nnoremap <leader>hs :wincmd s <CR>
 "save ez mode
 nnoremap <leader>ss :w<CR>
-"make tags
 
 
 
