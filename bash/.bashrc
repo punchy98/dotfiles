@@ -1,3 +1,4 @@
+#!/bin/bash
 # .bashrc
 
 # Source global definitions
@@ -40,4 +41,8 @@ checkrb(){
         ruby -c $i;
     done
 }
+export PS1="\[$(tput bold)\]\[\033[38;5;1m\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/')\[$(tput sgr0)\][\u@\h \[$(tput sgr0)\]\[\033[38;5;94m\]\w\[$(tput sgr0)\] ]\\$ \[$(tput sgr0)\]"
+
+
+
 
