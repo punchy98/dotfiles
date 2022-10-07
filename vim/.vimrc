@@ -41,8 +41,9 @@ let g:netrw_liststyle=3     " tree view
 
 " ---- Set env variables ---- "
 let $RTP=split(&runtimepath,',')[0] 
-let $rc="$HOME/.vimrc" 
+let $vrc="$HOME/.vimrc" 
 let $i3="$HOME/.config/i3/config"
+let $brc="$HOME/.bashrc"
 
 " ---- set leader ----"
 let mapleader = " "
