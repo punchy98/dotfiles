@@ -33,7 +33,6 @@ colorscheme slate
 
 " ---- set netrw configs ----"
 let g:netrw_banner=0        " disable annoying banner
-"let g:netrw_browse_split=4  " open in prior window
 let g:netrw_altv=1          " open splits to the right
 let g:netrw_liststyle=3     " tree view
 
@@ -70,8 +69,6 @@ nnoremap H ^
 nnoremap L $
 "quicker escape
 inoremap jj <ESC>
-"set vimpaste keybind
-nnoremap <leader>p "+P 
 "open filetree and resize
 nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 20<CR>
 "split vim vertically
@@ -82,6 +79,16 @@ nnoremap <leader>hs :wincmd s <CR>
 nnoremap <leader>ss :w<CR>
 
 
-
+"if vim was compiled wiht clipboard support (i.e. vimx)
+if has('clipboard_working')
+    "set vimpaste keybind
+    nnoremap <leader>p "+p 
+    "set vimpaste keybind
+    nnoremap <leader>P "+P 
+endif
+if has('nvim')
+    "nvim only remaps here
+    "
+endif
 
 
