@@ -29,20 +29,24 @@ unset rc
 
 #-------------------------------BEGIN CUSTOM--------------------------------------#
 #----Aliases----"
-if [ -n $(command -v nvim) ]; then
-    export EDITOR="nvim"
-elif [ -n $(command -v vimx) ]; then  
-    export EDITOR="vimx"
-elif [ -n $(command -v vim) ]; then  
-    export EDITOR="vim"
-fi
-alias vim="vimx"
-alias vi="vimx"
-
+#set cat to bat with cat-like paging
 if [ -n $(command -v bat) ]; then
     alias cat="bat --paging never"
 fi
 
+#if vimx is not installed set vim to default editor and set editor aliases
+if [ -n $(command -v nvim) ]; then
+    export EDITOR="nvim"
+    alias vim="nvim"
+    alias vi="nvim"
+elif [ -n $(command -v vimx) ]; then  
+    export EDITOR="vimx"
+    alias vim="vimx"
+    alias vi="vimx"
+elif [ -n $(command -v vim) ]; then  
+    export EDITOR="vim"
+    alias vi="vim"
+fi
 
 
 # Don't put duplicate lines or lines starting with space in the history
@@ -59,19 +63,6 @@ HISTFILESIZE=100000
 # instead of at the end of the session
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
 
-#if vimx is not installed set vim to default editor
-if [ -n $(command -v nvim) ]; then
-    export EDITOR="nvim"
-    alias vim="nvim"
-    alias vi="nvim"
-elif [ -n $(command -v vimx) ]; then  
-    export EDITOR="vimx"
-    alias vim="vimx"
-    alias vi="vimx"
-elif [ -n $(command -v vim) ]; then  
-    export EDITOR="vim"
-    alias vi="vim"
-fi
 #----Functions----#
 
 # check ruby syntax in project folder recursively
