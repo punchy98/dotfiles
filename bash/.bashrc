@@ -29,6 +29,13 @@ unset rc
 
 #-------------------------------BEGIN CUSTOM--------------------------------------#
 #----Aliases----"
+if [ -n $(command -v nvim) ]; then
+    export EDITOR="nvim"
+elif [ -n $(command -v vimx) ]; then  
+    export EDITOR="vimx"
+elif [ -n $(command -v vim) ]; then  
+    export EDITOR="vim"
+fi
 alias vim="vimx"
 alias vi="vimx"
 
@@ -55,10 +62,15 @@ PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
 #if vimx is not installed set vim to default editor
 if [ -n $(command -v nvim) ]; then
     export EDITOR="nvim"
+    alias vim="nvim"
+    alias vi="nvim"
 elif [ -n $(command -v vimx) ]; then  
     export EDITOR="vimx"
+    alias vim="vimx"
+    alias vi="vimx"
 elif [ -n $(command -v vim) ]; then  
     export EDITOR="vim"
+    alias vi="vim"
 fi
 #----Functions----#
 
