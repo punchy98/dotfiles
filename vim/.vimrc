@@ -22,14 +22,19 @@ set smartindent
 set path=.,**
 set wildmenu
 
+" ---- vim plug ---- "  
+call plug#begin()
+Plug 'airblade/vim-gitgutter'
+Plug 'gruvbox-community/gruvbox'
+call plug#end()
 " ---- Set filetype detection and syntax highlighting ---- "
 filetype plugin indent on
 syntax on
 
 
+
 " ---- Set colorscheme ---- "
 colorscheme slate
-
 
 " ---- set netrw configs ----"
 let g:netrw_banner=0        " disable annoying banner
@@ -88,7 +93,8 @@ if has('clipboard_working')
 endif
 if has('nvim')
     "nvim only remaps here
-    "
+    " ---- Set colorscheme ---- "
+    colorscheme gruvbox
 endif
 
 
