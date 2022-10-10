@@ -29,6 +29,7 @@ unset rc
 
 #-------------------------------BEGIN CUSTOM--------------------------------------#
 #----Aliases----"
+alias ports='netstat -tulanp'
 #set cat to bat with cat-like paging
 if [ -n $(command -v bat) ]; then
     alias cat="bat --paging never"
@@ -37,15 +38,21 @@ fi
 #if vimx is not installed set vim to default editor and set editor aliases
 if [ -n $(command -v nvim) ]; then
     export EDITOR="nvim"
+    export SUDO_EDITOR="nvim"
+    export GIT_EDITOR="nvim"
+    alias suvim="sudo -E nvim"
     alias vim="nvim"
     alias vi="nvim"
 elif [ -n $(command -v vimx) ]; then  
     export EDITOR="vimx"
-    alias vim="vimx"
-    alias vi="vimx"
+    export SUDO_EDITOR="vimx"
+    export GIT_EDITOR="vimx"
+    alias suvim="sudo -E vimx"
+    alias vim="vimx --noplugin"
+    alias vi="vimx --noplugin"
 elif [ -n $(command -v vim) ]; then  
-    export EDITOR="vim"
-    alias vi="vim"
+    export EDITOR="vim --noplugin"
+    alias vi="vim --noplugin"
 fi
 
 
@@ -58,11 +65,19 @@ shopt -s cmdhist
 # Append to the history file, don't overwrite it
 shopt -s histappend
 HISTSIZE=500000
-HISTFILESIZE=100000
+HISTFILESIZE=500000
 # Record each line of history right away
 # instead of at the end of the session
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
 
+#set terminal prompt
+export PS1="\[$(tput bold)\]\[\033[38;5;1m\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/')\[$(tput sgr0)\][\u@\h \[$(tput sgr0)\]\[\033[38;5;94m\]\w\[$(tput sgr0)\] ]\\$ \[$(tput sgr0)\]"
+
+#set vi editing mode for bash
+set -o vi
+
+#set Control+l to clear screen - randomly became unbound
+bind -x '"\C-l": clear;'
 #----Functions----#
 
 # check ruby syntax in project folder recursively
@@ -86,10 +101,13 @@ mvp()
     mv "$@"
 }
 
+gpush()
+{
+    git add .
+    git commit -m "$1"
+    git push
+}
 
-
-#set terminal prompt
-export PS1="\[$(tput bold)\]\[\033[38;5;1m\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/')\[$(tput sgr0)\][\u@\h \[$(tput sgr0)\]\[\033[38;5;94m\]\w\[$(tput sgr0)\] ]\\$ \[$(tput sgr0)\]"
 
 
 
