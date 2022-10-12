@@ -22,14 +22,6 @@ set smartindent
 set path=.,**
 set wildmenu
 
-" ---- vim plug ---- "  
-call plug#begin()
-Plug 'airblade/vim-gitgutter'
-Plug 'gruvbox-community/gruvbox'
-Plug 'ap/vim-css-color'
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-call plug#end()
 " ---- Set filetype detection and syntax highlighting ---- "
 filetype plugin indent on
 syntax on
@@ -51,7 +43,6 @@ let g:netrw_liststyle=3
 " ---- Set env variables ---- "
 let $RTP=split(&runtimepath,',')[0] 
 let $vrc="$HOME/.vimrc" 
-let $i3="$HOME/.config/i3/config"
 let $brc="$HOME/.bashrc"
 
 " ---- set leader ----"
@@ -95,11 +86,6 @@ if has('clipboard_working')
     nnoremap <leader>p "+p 
     "set vimpaste keybind
     nnoremap <leader>P "+P 
-endif
-if has('nvim')
-    "nvim only remaps here
-    " ---- Set colorscheme ---- "
-    colorscheme gruvbox
 endif
 
 
