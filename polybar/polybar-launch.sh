@@ -6,11 +6,11 @@ killall -q polybar
 # polybar-msg cmd quit
 if type "xrandr"; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar --reload example -c ~/dotfiles/i3/polybar-config.ini &
+    MONITOR=$m polybar --reload mainscreen -c ~/dotfiles/polybar/polybar-config-gruvbox.ini &
 
   done
 else
-  polybar --reload example -c ~/dotfiles/i3/polybar-config.ini &
+  polybar --reload mainscreen -c ~/dotfiles/polybar/polybar-config-gruvbox.ini &
 fi
 # Launch Polybar, using default config location ~/.config/polybar/config.ini
 #polybar -c ~/dotfiles/i3/polybar-config.ini

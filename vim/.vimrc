@@ -26,11 +26,13 @@ set wildmenu
 call plug#begin()
 Plug 'airblade/vim-gitgutter'
 Plug 'gruvbox-community/gruvbox'
+Plug 'ap/vim-css-color'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 " ---- Set filetype detection and syntax highlighting ---- "
 filetype plugin indent on
 syntax on
-
 
 
 " ---- Set colorscheme ---- "
