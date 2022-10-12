@@ -27,4 +27,7 @@ gpush()
     git commit -m "$1"
     git push
 }
-
+addkeys()
+{
+    ssh-add ~/.ssh/labkey
+}
