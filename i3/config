@@ -212,7 +212,7 @@ bindsym $mod+r mode "resize"
 
 
 exec_always --no-startup-id ~/dotfiles/polybar/polybar-launch.sh
-exec_always --no-startup-id feh --bg-scale ~/dotfiles/polybar/penguin.png
+exec_always --no-startup-id feh --bg-fill ~/dotfiles/polybar/penguin.png
 exec_always --no-startup-id i3-auto-layout 
 
 # Set gaps
