@@ -28,3 +28,4 @@ elif hash vim 2>/dev/null; then
 fi
 
 alias ls="exa"
+alias l="exa"
