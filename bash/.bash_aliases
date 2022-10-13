@@ -1,8 +1,10 @@
 #----Aliases----"
 alias ports='netstat -tulanp'
 #set cat to bat with cat-like paging
-if [ -n $(command -v bat) ]; then
+if hash bat 2>/dev/null; then
     alias cat="bat --paging never"
+elif hash batcat 2>/dev/null; then
+    alias cat="batcat --paging never"
 fi
 
 #if vimx is not installed set vim to default editor and set editor aliases
