@@ -29,5 +29,6 @@ gpush()
 }
 addkeys()
 {
+    eval `ssh-agent`
     ssh-add ~/.ssh/labkey
 }
