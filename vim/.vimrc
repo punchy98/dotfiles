@@ -1,4 +1,5 @@
 " ---- Set options ---- "
+"set nocompatible
 set number
 set nohlsearch
 set noerrorbells
@@ -29,11 +30,16 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'ap/vim-css-color'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'rust-lang/rust.vim'
+"Plug 'vimwiki/vimwiki'
 call plug#end()
 " ---- Set filetype detection and syntax highlighting ---- "
 filetype plugin indent on
 syntax on
 
+" ---- Set vimwiki location ----"
+"let g:vimwiki_list = [{'path': '~/Documents/main-vault/main/',
+"                      \ 'syntax': 'markdown', 'ext': '.md'}]
 
 " ---- Set colorscheme ---- "
 colorscheme slate

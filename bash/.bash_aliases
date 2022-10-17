@@ -30,3 +30,4 @@ fi
 alias ls="exa"
 alias l="exa"
 alias btconn="bluetoothctl connect 8C:85:80:2E:16:93"
+alias qn="quicknote"

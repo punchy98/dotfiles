@@ -32,3 +32,11 @@ addkeys()
     eval `ssh-agent`
     ssh-add ~/.ssh/labkey
 }
+#create quicknote from cli in obsidian vault
+quicknote(){
+    date=$(date '+%Y-%m-%d')
+    newnote="/home/punchy/Documents/main-vault/main/${date} quick note.md"
+    cp /home/punchy/Documents/main-vault/main/Templates/qn-template.md "$newnote"
+    nvim +4 "$newnote" 
+}
+
