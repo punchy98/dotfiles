@@ -83,7 +83,10 @@ nnoremap <S-Down> moo<Esc>
 nnoremap H ^
 "end of line
 nnoremap L $
-"quicker escape
+"move visual lines instead of literal
+nnoremap j gj
+nnoremap k gk
+"quicker esclpe
 inoremap jj <ESC>
 "open filetree and resize
 nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 20<CR>
