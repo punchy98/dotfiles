@@ -89,7 +89,7 @@ nnoremap k gk
 "quicker esclpe
 inoremap jj <ESC>
 "open filetree and resize
-nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 20<CR>
+nnoremap <leader>pv :Ex <CR> 
 "split vim vertically
 nnoremap <leader>vs :wincmd v <CR>
 "split vim horizontally

@@ -13,7 +13,7 @@ set $mod Mod4
 
 
 exec --no-startup-id xinput set-prop "ASUP1205:00 093A:2003 Touchpad" "libinput Tapping Enabled" 1
-
+exec_always --no-startup-id numlockx on
 exec_always --no-startup-id autorandr --change
 #exec_always --no-startup-id picom --config ~/dotfiles/picom/picom.conf
 # Font for window titles. Will also be used by the bar unless a different font
@@ -176,7 +176,7 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # workspace autolaunch
-assign [class="kitty" instance="kitty" title="bash" ] $ws1
+assign [class="kitty" title="bash" ] $ws1
 assign [class="firefox" window_role="browser"] $ws2
 assign [class="obsidian"] $ws3
 
@@ -217,7 +217,7 @@ bindsym $mod+r mode "resize"
 
 exec_always --no-startup-id ~/dotfiles/polybar/polybar-launch.sh
 exec_always --no-startup-id feh --bg-fill ~/dotfiles/polybar/penguin.png
-#exec_always --no-startup-id i3-auto-layout 
+exec_always --no-startup-id i3-auto-layout 
 
 # Set gaps
 gaps inner 8
