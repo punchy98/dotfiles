@@ -22,6 +22,7 @@ set autoindent
 set smartindent
 set path=.,**
 set wildmenu
+" ---- autocmd ----"
 
 " ---- Set filetype detection and syntax highlighting ---- "
 filetype plugin indent on
@@ -78,7 +79,7 @@ nnoremap k gk
 "quicker esclpe
 inoremap jj <ESC>
 "open filetree and resize
-nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 20<CR>
+nnoremap <leader>pv :Ex <CR> 
 "split vim vertically
 nnoremap <leader>vs :wincmd v <CR>
 "split vim horizontally
@@ -86,8 +87,7 @@ nnoremap <leader>hs :wincmd s <CR>
 "save ez mode
 nnoremap <leader>ss :w<CR>
 
-
-"if vim was compiled wiht clipboard support (i.e. vimx)
+"if vim was compiled with clipboard support (i.e. vimx)
 if has('clipboard_working')
     "set vimpaste keybind
     nnoremap <leader>p "+p 
@@ -96,3 +96,15 @@ if has('clipboard_working')
 endif
 
 
+"toggle cursor column/line
+fu! ToggleCurline ()
+  if &cursorline && &cursorcolumn
+    set nocursorline
+    set nocursorcolumn
+  else
+    set cursorline
+    set cursorcolumn
+  endif
+endfunction
+
+nnoremap <leader>col :call ToggleCurline()<CR>

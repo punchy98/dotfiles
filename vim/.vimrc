@@ -22,6 +22,7 @@ set autoindent
 set smartindent
 set path=.,**
 set wildmenu
+" ---- autocmd ----"
 
 " ---- vim plug ---- "  
 call plug#begin()
@@ -32,6 +33,7 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'rust-lang/rust.vim'
 "Plug 'vimwiki/vimwiki'
+"Plug 'valloric/youcompleteme'
 call plug#end()
 " ---- Set filetype detection and syntax highlighting ---- "
 filetype plugin indent on
@@ -97,8 +99,7 @@ nnoremap <leader>hs :wincmd s <CR>
 "save ez mode
 nnoremap <leader>ss :w<CR>
 
-
-"if vim was compiled wiht clipboard support (i.e. vimx)
+"if vim was compiled with clipboard support (i.e. vimx)
 if has('clipboard_working')
     "set vimpaste keybind
     nnoremap <leader>p "+p 
@@ -112,3 +113,15 @@ if has('nvim')
 endif
 
 
+"toggle cursor column/line
+fu! ToggleCurline ()
+  if &cursorline && &cursorcolumn
+    set nocursorline
+    set nocursorcolumn
+  else
+    set cursorline
+    set cursorcolumn
+  endif
+endfunction
+
+nnoremap <leader>col :call ToggleCurline()<CR>
