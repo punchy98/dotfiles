@@ -70,9 +70,9 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previousterminal
 
 # launch terminal 
-bindsym $mod+Return exec kitty -c ~/dotfiles/kitty/kitty.conf
+bindsym $mod+Return exec kitty -c ~/dotfiles/kitty/kitty.conf --class terminal
 # launch vim quicknote
-bindsym $mod+n exec kitty -c ~/dotfiles/kitty/kitty.conf ~/dotfiles/scripts/quicknote.sh
+bindsym $mod+n exec  kitty -c ~/dotfiles/kitty/kitty.conf ~/dotfiles/scripts/quicknote.sh
 for_window [ class="kitty" title="quicknote.sh" ] floating enable, resize set 700px 400px, move position center
 
 # kill focused window
@@ -176,7 +176,7 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # workspace autolaunch
-assign [class="kitty" title="bash" ] $ws1
+assign [class="terminal"] $ws1 
 assign [class="firefox" window_role="browser"] $ws2
 assign [class="obsidian"] $ws3
 

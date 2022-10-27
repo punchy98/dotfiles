@@ -29,5 +29,6 @@ fi
 
 alias ls="exa"
 alias l="exa"
-alias btconn="bluetoothctl connect 8C:85:80:2E:16:93"
+alias btconn="bluetoothctl connect AC:12:2F:8E:FB:D9" 
 alias qn="quicknote"
+alias btdisconn="bluetoothctl disconnect AC:12:2F:8E:FB:D9" 
