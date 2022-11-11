@@ -3,7 +3,10 @@
 notefilename="$HOME/Documents/main-vault/bashnote-$(date +%Y-%m-%d).md"
 
 if [ ! -f $notefilename ]; then
-    echo "## Notes for $(date +%Y-%m-%d)" > $notefilename
+    echo "---" > $notefilename
+    echo "tags: [bashnote]" >> $notefilename
+    echo "---" >> $notefilename
+    echo "## Notes for $(date +%Y-%m-%d)" >> $notefilename
     echo "links: [[$(date +%Y-%m-%d)]]" >> $notefilename
 fi
 
