@@ -179,7 +179,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 assign [class="terminal"] $ws1 
 assign [class="firefox" window_role="browser"] $ws2
 assign [class="obsidian"] $ws3
-
+assign [class="remmina"] $ws4
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
