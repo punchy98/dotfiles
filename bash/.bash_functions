@@ -40,3 +40,54 @@ quicknote(){
     nvim +4 "$newnote" 
 }
 
+go()
+{
+    usage()
+    {
+        echo "Syntax: go [arg] hostname "
+        echo "-u: alternate user"
+        echo "-h: this help menu"
+    }
+    local OPTIND
+    while getopts :hu:e: arg; do
+      case "${arg}" in
+        u)
+            alt_user=${OPTARG}
+            echo $alt_user
+            ;;
+        h)
+            usage
+            return 0
+            ;;
+
+      esac
+    done
+    server=${*: -1:1}
+    if [[ -z "$server" || "$server" == *"/"* ]]; 
+    then
+        echo "No server specified"
+        usage
+    else
+        if [ -n "$alt_user" ];
+        then
+            echo "Jump initiated to $server as $alt_user"
+            ssh $alt_user@$server
+        else
+            echo "Jump initiated to $server as punchy"
+            ssh punchy@$server
+        fi
+    fi    
+}
+
+tmuxstart() {
+    tmux new-session -d -s sess >/dev/null
+    tmux new-window -t sess
+    tmux rename-window -t sess:1 'second'
+    tmux splitw -v -p 10 -t sess
+    tmux splitw -h -p 80 -t sess
+    tmux select-pane -t sess
+    tmux splitw -h -p 5 -t sess
+    tmux clock -t sess:1.1
+    tmux a -t sess
+}
+
