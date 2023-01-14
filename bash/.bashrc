@@ -40,4 +40,3 @@ set -o vi
 
 #set Control+l to clear screen - randomly became unbound
 bind -x '"\C-l": clear;'
-. "$HOME/.cargo/env"
