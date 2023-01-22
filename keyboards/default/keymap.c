@@ -13,6 +13,16 @@ enum sofle_layers {
 enum custom_keycodes {
     KC_QWERTY = SAFE_RANGE,
 };
+// Tap Dance declarations
+//enum {
+//    TD_ESC_JJ,
+//};
+
+// Tap Dance definitions
+//qk_tap_dance_action_t tap_dance_actions[] = {
+//    // Tap once for Escape, twice for Caps Lock
+//    [TD_ESC_JJ] = ACTION_TAP_DANCE_DOUBLE(KC_J, KC_ESC),
+//};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[0] = LAYOUT(QK_GESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS, KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, KC_CAPS, KC_A, KC_S, KC_D, LT(3,KC_F), KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, SC_LSPO, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_MUTE, SGUI(KC_S), KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, SC_RSPC, KC_LGUI, KC_LALT, KC_LCTL, KC_SPC, MO(_NUM), MO(_SYM), KC_ENT, KC_RCTL, KC_RALT, KC_RGUI),
