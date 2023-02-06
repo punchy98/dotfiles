@@ -103,6 +103,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
         }
+//        case SECRET: {
+//            if (record->event.pressed) {
+//                SEND_STRING(SS_TAP(K_SECR1));
+//            }
+//            return false;
+//        }
     }
 
     return process_record_user_kb(keycode, record);

@@ -27,6 +27,9 @@ enum userspace_custom_keycodes {
     K_SECR2,
     K_SECR3,
     K_SECR4,
+    K_SECR5,
+    K_SECR6,
+    K_SECR7,
 
     DYNAMIC_MACRO_RANGE
 };
