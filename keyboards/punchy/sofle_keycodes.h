@@ -17,7 +17,10 @@ enum userspace_custom_keycodes {
     FS_PIPE,               // |>        (F# pipe operator)
     FS_ARR,                // ->        (F# lambda / pattern matching)
     SHEBANG,               // #!
-    LIN_UPDIR,                // ../        (F# lambda / pattern matching)
+    UPDIR,
+    DOUBLEARR,
+    REV2ARR,
+    PGREP,
 
     // USER_MOUSE_JIGGLE_ENABLE
     MS_JIGL,

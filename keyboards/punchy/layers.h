@@ -8,4 +8,5 @@ enum layers {
     _MOUSE,
     _NUMPAD,
     _LINUXSYM,
+    _GAMING,
 };

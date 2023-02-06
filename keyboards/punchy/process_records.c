@@ -103,6 +103,30 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
         }
+        case UPDIR: {
+            if (record->event.pressed) {
+                SEND_STRING("../");
+            }
+            return false;
+        }
+        case DOUBLEARR: {
+            if (record->event.pressed) {
+                SEND_STRING(">>");
+            }
+            return false;
+        }
+        case REV2ARR: {
+            if (record->event.pressed) {
+                SEND_STRING("<<");
+            }
+            return false;
+        }
+        case PGREP: {
+            if (record->event.pressed) {
+                SEND_STRING(" | grep");
+            }
+            return false;
+        }
 //        case SECRET: {
 //            if (record->event.pressed) {
 //                SEND_STRING(SS_TAP(K_SECR1));
