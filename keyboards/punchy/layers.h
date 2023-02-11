@@ -9,4 +9,5 @@ enum layers {
     _NUMPAD,
     _LINUXSYM,
     _GAMING,
+    _ADJUST,
 };

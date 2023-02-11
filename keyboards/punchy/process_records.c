@@ -37,11 +37,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
               clear_oneshot_mods();  // Temporarily disable mods.
               unregister_mods(MOD_MASK_CSAG);
               if ((mod_state | oneshot_mods) & MOD_MASK_SHIFT) {
-                SEND_STRING("{}");
+                SEND_STRING("[]");
               } else if ((mod_state | oneshot_mods) & MOD_MASK_CTRL) {
                 SEND_STRING("<>");
               } else {
-                SEND_STRING("[]");
+                SEND_STRING("{}");
               }
               tap_code(KC_LEFT);  // Move cursor between braces.
               register_mods(mod_state);  // Restore mods.
