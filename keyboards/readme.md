@@ -1,6 +1,6 @@
 ### Dirs
-punchy - userspace configs for all keyboards
-sofle - configs specifically for sofle split keyboard
+punchy - userspace configs for all keyboards  
+sofle - configs specifically for sofle split keyboard  
 
 ### Combos
  |Keys | SendCombo |Result |
@@ -14,29 +14,29 @@ sofle - configs specifically for sofle split keyboard
 
 ### Macros
 ##### Normal Macros 
-BRACES: [], {}, or <> and puts cursor between braces.
-PRG_EQ: ==
-PRG_NE:!=
-PRG_GEQ:>=
-PRG_LEQ:<=
-PRG_ARR:=>
-PS_ITEM:$_
-FS_PIPE:|>
-FS_ARR:->
-SHEBANG:#!
-UPDIR:../
-DOUBLEARR:>>
-REV2ARR:<<
-PGREP: | grep
+BRACES: [], {}, or <> and puts cursor between braces.  
+PRG_EQ: ==  
+PRG_NE:!=  
+PRG_GEQ:>=  
+PRG_LEQ:<=  
+PRG_ARR:=>  
+PS_ITEM:$_  
+FS_PIPE:|>  
+FS_ARR:->  
+SHEBANG:#!  
+UPDIR:../  
+DOUBLEARR:>>  
+REV2ARR:<<  
+PGREP: | grep  
 
 ##### Secrets Macros
-Uses a variation of drasna's Secrets macro.
+Uses a variation of drasna's Secrets macro.  
 
-SECR1
-SECR2
-SECR3
-SECR4
-SECR5
+SECR1  
+SECR2  
+SECR3  
+SECR4  
+SECR5  
 
 
 ### Layouts
