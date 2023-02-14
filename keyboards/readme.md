@@ -23,13 +23,13 @@ sofle - configs specifically for sofle split keyboard
  |PRG_LEQ    | <=      |
  |PRG_ARR    | =>      |
  |PS_ITEM    | $_      |
- |FS_PIPE    | |>      |
+ |FS_PIPE    | \|>      |
  |FS_ARR     |->       |
  |SHEBANG    | #!      |
  |UPDIR      |../      |
  |DOUBLEARR  | >>      |
  |REV2ARR    | <<      |
- |PGREP      | | grep  |
+ |PGREP      | \| grep  |
 
 ##### Secrets Macros
 Uses a variation of drasna's Secrets macro.  
