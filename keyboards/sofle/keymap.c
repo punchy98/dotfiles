@@ -38,14 +38,20 @@
 enum combos {
   XC_COPY,
   CV_PASTE,
+  XV_CUT,
+//  SBS_DEL,
 };
 
 const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM cv_combo[] = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM xv_combo[] = {KC_X, KC_V, COMBO_END};
+//const uint16_t PROGMEM sb_combo[] = {KC_LSFT, KC_BSPC, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
   [XC_COPY] = COMBO(xc_combo, LCTL(KC_C)),
   [CV_PASTE] = COMBO(cv_combo, LCTL(KC_V)),
+  [XV_CUT] = COMBO(xv_combo, LCTL(KC_X)),
+ // [SBS_DEL] = COMBO(sb_combo, LCTL(KC_BSPC)),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -72,17 +78,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | TAB  |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  | Bspc |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |Caps W|   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   ;  |  '   |
- * |------+------+------+------+------+------| MUTE  |    |DISCORD|------+------+------+------+------+------|
+ * |------+------+------+------+------+------| MUTE  |    |WINShfS|------+------+------+------+------+------|
  * |LShft(|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |RShft)|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | Win  | ALT  | LCTL | Space| /Home   /       \End   \  |Enter |End   |INSERT|DELETE|
+ *            | Win  | ALT  | LCTL | Space| /Home   /       \End   \  |Enter |DELETE|INSERT|DELETE|
  *            |      |      |      |      |/ NUMROW/         \LSYM  \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
 	[0] = LAYOUT(
             QK_GESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS,
             KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, 
-            CW_TOGG, KC_A, KC_S, LT(5,KC_D), LT(3,KC_F), KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, 
+            CW_TOGG, KC_A, KC_S, LT(_NUMPAD,KC_D), LT(_NAV,KC_F), KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, 
             SC_LSPO, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_MUTE, SGUI(KC_S), KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, SC_RSPC, 
             KC_LGUI, KC_LALT, KC_LCTL, KC_SPC, LT(_NUMROW,KC_HOME), LT(_LINUXSYM,KC_END), KC_ENT, KC_DEL, KC_INS, KC_DEL
             ),
@@ -91,35 +97,35 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |SECR5 |SECR1 |SECR2 |SECR3 |SECR4 |                    |   +  |   -  |   *  |   /  |   ,  | TRNS |
+ * |      |SECR5 |SECR1 |SECR2 |SECR3 |SECR4 |                    |      |      |      |      |      | TRNS |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      |  1   |  2   |  3   |  4   |  5   |-------.    ,-------|  6   |   7  |  8   |  9   |   0  |      |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
- * |      |      | CUT  | COPY | PASTE|      |-------|    |-------|      |      |      |      |   .  |      |
+ * |      |      |      |      |      |      |-------|    |-------|      |      |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            |      |      |CtlAlt|MOUSE | /NUMROW /       \LINSYM\  |  =   |Enter |  .   |      |
+ *            |      |      |CtlAlt|      | /NUMROW /       \LINSYM\  |      |      |      |      |
  *            |      |      |Del   |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
 	[_NUMROW] = LAYOUT(
             KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, 
-            KC_NO, K_SECR5, K_SECR1, K_SECR2, K_SECR3, K_SECR4, KC_PPLS, KC_PMNS, KC_PAST, KC_PSLS, KC_PCMM, KC_TRNS, 
+            KC_NO, K_SECR5, K_SECR1, K_SECR2, K_SECR3, K_SECR4, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, 
             KC_NO, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_NO, 
-            KC_NO, KC_NO, KC_CUT, KC_COPY, KC_PSTE, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_DOT, KC_NO,
-            KC_NO, KC_NO, KC_NO, LCA(KC_DEL), MO(_MOUSE), MO(_NUMROW), MO(_LINUXSYM), KC_PEQL, KC_ENT, KC_PDOT, KC_TRNS
+            KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_DOT, KC_NO,
+            KC_NO, KC_NO, KC_NO, LCA(KC_DEL), KC_NO, MO(_NUMROW), MO(_LINUXSYM), KC_NO, KC_NO, KC_NO, KC_NO
             ),
 /* 
  * NAV
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * | TRNS | TRNS | TRNS | TRNS | TRNS | TRNS |                    | TRNS |TRNS  | TRNS | TRNS | TRNS | TRNS |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | TRNS |INSERT|PRTSCR| APP  |      |      |                    |HOME  | PGDN | PGUP | END  |      | BSPC |
+ * | TRNS |INSERT|PRTSCR| APP  |      |      |                    | HOME | PGDN | PGUP | END  |      | BSPC |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | TRNS | LALT | LCTL | LSHIF| TRNS | CAPS |-------.    ,-------|LEFT  | DOWN | UP   | RIGHT|      | BSPC |
  * |------+------+------+------+------+------| TRNS  |    | TRNS  |------+------+------+------+------+------|
  * | TRNS | UNDO | CUT  | COPY | PASTE|      |-------|    |-------|DELETE| MWDN |MWUP  |INSERT|      |TRNS  |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | TRNS |TRNS  | TRNS |MOUSE | /NUMROW /       \LINSYM\  | TRNS | TRNS | TRNS | TRNS |
+ *            | TRNS |TRNS  | TRNS |      | /NUMROW /       \LINSYM\  | TRNS | TRNS | TRNS | TRNS |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *             `----------------------------------'           '------''---------------------------'
  */
@@ -128,30 +134,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_TRNS, KC_INS, KC_PSCR, KC_APP, KC_NO, KC_NO, KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_NO, KC_BSPC,
             KC_TRNS, KC_LALT, KC_LCTL, KC_LSFT, KC_TRNS, KC_CAPS, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_NO, KC_BSPC, 
             KC_TRNS, LCTL(KC_Z), LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), KC_NO, KC_TRNS, KC_TRNS, KC_DEL, KC_WH_D, KC_WH_U, KC_INS, KC_NO, KC_TRNS, 
-            KC_TRNS, KC_TRNS, KC_TRNS, MO(_MOUSE), MO(_NUMROW), MO(_LINUXSYM), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
-            ),
-
-/* 
- * MOUSE
- * ,-----------------------------------------.                    ,-----------------------------------------.
- * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |      |      |                    |      | RMB  |      |  LMB |      |      |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------.    ,-------| MWL  | MWD  | MWD  | MWR  |      |      |
- * |------+------+------+------+------+------|       |    | TRNS  |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------|    |-------| ML   | MD   | MU   |  MR  |      |      |
- * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            |      |      |      | TRNS | /NUMROW /       \LINSYM\  |      |      |      | TRNS |
- *            |      |      |      |      |/       /         \      \ |      |      |      |      |
- *             `----------------------------------'           '------''---------------------------'
- */
-	[_MOUSE] = LAYOUT(
-            KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-            KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_BTN1, KC_NO, KC_BTN2, KC_NO, KC_NO,
-            KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_NO, KC_NO,
-            KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_NO, KC_NO,
-            KC_NO, KC_NO, KC_NO, KC_TRNS, MO(_NUMROW), MO(_LINUXSYM), KC_NO, KC_NO, KC_NO, KC_TRNS
+            KC_TRNS, KC_TRNS, KC_TRNS, KC_NO, MO(_NUMROW), MO(_LINUXSYM), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
             ),
     
 /* 
@@ -181,11 +164,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |   `  |   @  |   &  |   +  |   =  |  %   |                    |   ^  |   [  |   }  | PGREP|      | BSPC |
+ * |   `  |   @  |   &  |   +  |   =  |  %   |                    |   ^  |BRACES|BRACES| PGREP|      | BSPC |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |  !   |   ~  |  <   |  >   |  #   |-------.    ,-------|  $   |BRACES|PSITEM|   \  |  *   |      |
+ * |      |  !   |   ~  |  <   |  >   |  #   |-------.    ,-------|  $   |  *   |PSITEM|   \  |  ../ |      |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
- * |SHIFT |      |   /  |  <<  |  >>  |      |-------|    |-------|  |   |   [  |   ]  |  ../ |      |      |
+ * |SHIFT |      |   /  |  <<  |  >>  |      |-------|    |-------|  |   |   {  |   }  |SHBANG|      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *            |      |      |      |      | /NUMROW /       \LINSYM\  |      |      |      |      |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
@@ -193,9 +176,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 	[_LINUXSYM] = LAYOUT(
             KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-            KC_GRV, KC_AT, KC_AMPR, KC_PLUS, KC_EQL, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, PGREP, KC_NO, KC_BSPC,
-            KC_NO, KC_EXLM, KC_TILD, KC_LT, KC_GT, KC_HASH, KC_DLR, BRACES, PS_ITEM, KC_BSLS, KC_ASTR, KC_NO,
-            KC_LSFT, KC_NO, KC_SLSH, REV2ARR, DOUBLEARR, KC_NO, KC_NO, KC_NO, KC_PIPE, KC_LCBR, KC_RCBR, UPDIR,KC_NO, KC_NO, 
+            KC_GRV, KC_AT, KC_AMPR, KC_PLUS, KC_EQL, KC_PERC, KC_CIRC, BRACES, BRACES, PGREP, KC_NO, KC_BSPC,
+            KC_NO, KC_EXLM, KC_TILD, KC_LT, KC_GT, KC_HASH, KC_DLR, KC_ASTR, PS_ITEM, KC_BSLS, UPDIR, KC_NO,
+            KC_LSFT, KC_NO, KC_SLSH, REV2ARR, DOUBLEARR, KC_NO, KC_NO, KC_NO, KC_PIPE, KC_LCBR, KC_RCBR, SHEBANG,KC_NO, KC_NO, 
             KC_NO, KC_NO, KC_NO, KC_NO, MO(_NUMROW), MO(_LINUXSYM), KC_NO, KC_NO, KC_NO, KC_NO
             ),
 /*
@@ -241,9 +224,6 @@ static void print_status_narrow(void) {
         case _QWERTY:
             oled_write_P(PSTR("Base\n"), false);
             break;
-        case _FULLSYM:
-            oled_write_P(PSTR("SYM"), false);
-            break;
         case _LINUXSYM:
             oled_write_P(PSTR("LINUX"), false);
             break;
@@ -251,10 +231,7 @@ static void print_status_narrow(void) {
             oled_write_P(PSTR("NUM"), false);
             break;
         case _NAV:
-            oled_write_P(PSTR("ARR\n"), false);
-            break;
-        case _MOUSE:
-            oled_write_P(PSTR("MSE\n"), false);
+            oled_write_P(PSTR("NAV\n"), false);
             break;
         case _NUMPAD:
             oled_write_P(PSTR("NPD\n"), false);
@@ -291,9 +268,9 @@ bool oled_task_user(void) {
 
 
 
-layer_state_t layer_state_set_user(layer_state_t state) {
-    return update_tri_layer_state(state, _NUMROW, _LINUXSYM, _MOUSE);
-}
+///layer_state_t layer_state_set_user(layer_state_t state) {
+    //return update_tri_layer_state(state, _NUMROW, _LINUXSYM, _LINUXSYM);
+//}
 
 
 
