@@ -1,10 +1,10 @@
 ### Dirs
 punchy - userspace configs for all keyboards
-
 sofle - configs specifically for sofle split keyboard
 
 ### Combos
  |Keys | SendCombo |Result |
+ |-----|-----------|-------|
  |XC   | LCTL(KC_C)|  Copy |
  |CV   | LCTL(KC_V)| Paste |
  |XV   | LCTL(KC_X)|  Cut  |
@@ -30,7 +30,7 @@ REV2ARR:<<
 PGREP: | grep
 
 ##### Secrets Macros
-Uses a variation of drasna's Secrets macro to map "hidden" macros from git.
+Uses a variation of drasna's Secrets macro.
 
 SECR1
 SECR2
@@ -42,7 +42,8 @@ SECR5
 ### Layouts
 
 ##### QWERTY
-```,-----------------------------------------.                    ,-----------------------------------------.
+```
+,-----------------------------------------.                    ,-----------------------------------------.
 |`~Esc |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |  -_  |
 |------+------+------+------+------+------|                    |------+------+------+------+------+------|
 | TAB  |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  | Bspc |
@@ -129,4 +130,5 @@ SECR5
            | Win  | ALT  | LCTL | Space| /       /       \      \  |Enter |HOME  | END  |DELETE|
            |      |      |      |      |/NUMROW /         \LINSYM\ |      |      |      |      |
            `----------------------------------'           '------''---------------------------'
+
 ```
