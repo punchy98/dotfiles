@@ -40,3 +40,6 @@ set -o vi
 
 #set Control+l to clear screen - randomly became unbound
 bind -x '"\C-l": clear;'
+
+. "$HOME/.cargo/env"
+export LD_LIBRARY_PATH=/opt/oracle/instantclient_21_9
