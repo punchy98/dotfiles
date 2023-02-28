@@ -6,8 +6,13 @@ fusion360
 prusaslicer
 asusctl
 supergfxctl
-rog control center
+asusctl-rog-gui
 lutris
 steam
 solaar
+google-noto-sans
+exa
+bat
+autorandr
+rust and cargo
 
