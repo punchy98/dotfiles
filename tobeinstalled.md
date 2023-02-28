@@ -15,4 +15,4 @@ exa
 bat
 autorandr
 rust and cargo
-
+qmk_firmware
