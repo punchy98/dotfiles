@@ -43,3 +43,4 @@ bind -x '"\C-l": clear;'
 
 . "$HOME/.cargo/env"
 export LD_LIBRARY_PATH=/opt/oracle/instantclient_21_9
+. /home/punchy/.nix-profile/etc/profile.d/nix.sh
