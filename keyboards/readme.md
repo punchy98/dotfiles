@@ -3,22 +3,12 @@ punchy - userspace configs for all keyboards
 sofle - configs specifically for sofle split keyboard  
 
 ### Combos
-<<<<<<< HEAD
- |Keys | SendCombo |Result |
- |-----|-----------|-------|
- |XC   | LCTL(KC_C)|  Copy |
- |CV   | LCTL(KC_V)| Paste |
- |XV   | LCTL(KC_X)|  Cut  |
- |XCV  | KC_MS_BTN3 | Middle Click Paste|
-
-=======
  |Keys | SendCombo |Result | Added?|
  |-----|-----------|-------|-------|
  |XC   | LCTL(KC_C)|  Copy | Yes |
  |CV   | LCTL(KC_V)| Paste | Yes |
  |XV   | LCTL(KC_X)|  Cut  | Yes |
  |XCV  | KC_MS_BTN3 | Middle Click Paste| No|
->>>>>>> f9f55e72dea69fbd4288d79bf4335f9c02d18406
 
 
 ### Macros
