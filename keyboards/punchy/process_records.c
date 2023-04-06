@@ -123,7 +123,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         case PGREP: {
             if (record->event.pressed) {
-                SEND_STRING("| grep");
+                SEND_STRING(" | grep");
             }
             return false;
         }
