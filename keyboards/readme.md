@@ -8,7 +8,7 @@ sofle - configs specifically for sofle split keyboard
  |XC   | LCTL(KC_C)|  Copy | Yes |
  |CV   | LCTL(KC_V)| Paste | Yes |
  |XV   | LCTL(KC_X)|  Cut  | Yes |
- |XCV  | KC_MS_BTN3 | Middle Click Paste| No|
+ |XCV  | KC_MS_BTN2 | Left Click Paste| Yes|
 
 
 ### Macros
