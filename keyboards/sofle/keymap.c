@@ -45,13 +45,13 @@ enum combos {
 const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM cv_combo[] = {KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM xv_combo[] = {KC_X, KC_V, COMBO_END};
-const uint16_t PROGMEM xcv_combo[] = {KC_X,KC_C,KC_V, COMBO_END};
+const uint16_t PROGMEM xcv_combo[] = {KC_X, KC_C, KC_V, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
   [XC_COPY] = COMBO(xc_combo, LCTL(KC_C)),
   [CV_PASTE] = COMBO(cv_combo, LCTL(KC_V)),
   [XV_CUT] = COMBO(xv_combo, LCTL(KC_X)),
-  [XCV_PASTE] = COMBO(xcv_combo, KC_MS_BTN3),
+  [XCV_PASTE] = COMBO(xcv_combo, KC_MS_BTN2),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
