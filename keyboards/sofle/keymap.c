@@ -39,19 +39,19 @@ enum combos {
   XC_COPY,
   CV_PASTE,
   XV_CUT,
-//  FJ_CLOSE,
+  XCV_PASTE,
 };
 
 const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM cv_combo[] = {KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM xv_combo[] = {KC_X, KC_V, COMBO_END};
-//const uint16_t PROGMEM fj_combo[] = {KC_F, KC_J, COMBO_END};
+const uint16_t PROGMEM xcv_combo[] = {KC_X,KC_C,KC_V, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
   [XC_COPY] = COMBO(xc_combo, LCTL(KC_C)),
   [CV_PASTE] = COMBO(cv_combo, LCTL(KC_V)),
   [XV_CUT] = COMBO(xv_combo, LCTL(KC_X)),
- // [FJ_CLOSE] = COMBO(fj_combo, LCTL(KC_W)),
+  [XCV_PASTE] = COMBO(xcv_combo, KC_MS_BTN3),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -164,11 +164,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |   `  |   @  |   &  |   =  |   +  |  %   |                    |   ^  |BRACES|BRACES| PGREP|      | BSPC |
+ * |   `  |   @  |   &  |   =  |   +  |  %   |                    |   ^  | PGREP|BRACES|   [  |   ]  | BSPC |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |  !   |   ~  |  <   |  >   |  #   |-------.    ,-------|  $   |  *   |PSITEM|   \  |  ../ |      |
+ * |      |  !   |   ~  |  <   |  >   |  #   |-------.    ,-------|  $   |  *   |PSITEM|   \  | UPDIR|      |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
- * |SHIFT |      |   /  |  <<  |  >>  |      |-------|    |-------|  |   |   {  |   }  |SHBANG|      |      |
+ * |SHIFT |      |   /  |  <<  |  >>  |      |-------|    |-------|  |   | UPDIR|   \  |SHBANG|      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *            |      |      |      |      | /NUMROW /       \LINSYM\  |      |      |      |      |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
@@ -176,9 +176,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 	[_LINUXSYM] = LAYOUT(
             KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-            KC_GRV, KC_AT, KC_AMPR, KC_EQL, KC_PLUS, KC_PERC, KC_CIRC, BRACES, BRACES, PGREP, KC_NO, KC_BSPC,
+            KC_GRV, KC_AT, KC_AMPR, KC_EQL, KC_PLUS, KC_PERC, KC_CIRC, PGREP, BRACES, KC_LBRC, KC_RBRC, KC_BSPC,
             KC_NO, KC_EXLM, KC_TILD, KC_LT, KC_GT, KC_HASH, KC_DLR, KC_ASTR, PS_ITEM, KC_BSLS, UPDIR, KC_NO,
-            KC_LSFT, KC_NO, KC_SLSH, REV2ARR, DOUBLEARR, KC_NO, KC_NO, KC_NO, KC_PIPE, KC_LCBR, KC_RCBR, SHEBANG,KC_NO, KC_NO, 
+            KC_LSFT, KC_NO, KC_SLSH, REV2ARR, DOUBLEARR, KC_NO, KC_NO, KC_NO, KC_PIPE, UPDIR, KC_BSLS, SHEBANG,KC_NO, KC_NO, 
             KC_NO, KC_NO, KC_NO, KC_NO, MO(_NUMROW), MO(_LINUXSYM), KC_NO, KC_NO, KC_NO, KC_NO
             ),
 /*
@@ -266,7 +266,26 @@ bool oled_task_user(void) {
 #endif
 
 
-
+bool caps_word_press_user(uint16_t keycode) {
+  switch (keycode) {
+    // Keycodes that continue Caps Word, with shift applied.
+    case KC_A ... KC_Z:
+      add_weak_mods(MOD_BIT(KC_LSFT));  // Apply shift to the next key.
+      return true;
+    // Keycodes that continue Caps Word, without shifting.
+    case KC_1 ... KC_0:
+    case KC_BSPC:
+    case KC_DEL:
+    case KC_EQL:
+    case KC_MINS:
+    case KC_UNDS:
+    case KC_LSFT:
+    case KC_RSFT:
+      return true;
+    default:
+      return false;  // Deactivate Caps Word.
+  }
+}
 
 ///layer_state_t layer_state_set_user(layer_state_t state) {
     //return update_tri_layer_state(state, _NUMROW, _LINUXSYM, _LINUXSYM);
