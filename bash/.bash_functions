@@ -79,7 +79,7 @@ go()
     fi    
 }
 
-tmuxstart() {
+tmx() {
     tmux new-session -d -s sess >/dev/null
     tmux new-window -t sess
     tmux rename-window -t sess:1 'second'
