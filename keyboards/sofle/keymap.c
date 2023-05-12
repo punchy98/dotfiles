@@ -287,6 +287,8 @@ bool caps_word_press_user(uint16_t keycode) {
     case KC_UNDS:
     case KC_LSFT:
     case KC_RSFT:
+    case SC_LSPO: 
+    case SC_RSPC: 
       return true;
     default:
       return false;  // Deactivate Caps Word.
