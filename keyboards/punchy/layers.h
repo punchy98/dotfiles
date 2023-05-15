@@ -4,7 +4,7 @@ enum layers {
     _QWERTY,
     _NUMROW,
     _NAV,
-    _NUMPAD,
+    _SYM2,
     _LINUXSYM,
     _GAMING,
 };
