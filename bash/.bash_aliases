@@ -28,6 +28,7 @@ elif hash vim 2>/dev/null; then
 fi
 
 alias ls="exa"
+alias ll="exa -lahg"
 alias l="exa"
 alias btconn="bluetoothctl connect AC:12:2F:8E:FB:D9" 
 alias qn="quicknote"
