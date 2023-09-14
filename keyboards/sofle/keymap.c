@@ -96,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, 
             CW_TOGG, KC_A, KC_S, LT(_SYM2,KC_D), LT(_NAV,KC_F), KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, 
             SC_LSPO, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_MUTE, SGUI(KC_S), KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, SC_RSPC, 
-            KC_LGUI, KC_LALT, KC_LCTL, KC_SPC, LT(_NUMROW,KC_HOME), LT(_LINUXSYM,KC_END), KC_ENT, KC_DEL, KC_INS, KC_DEL
+            KC_LGUI, KC_LALT ,KC_LCTL , KC_SPC, LT(_NUMROW,KC_HOME), LT(_LINUXSYM,KC_END), KC_ENT, LT(_NAV,KC_DEL), KC_INS, KC_DEL
             ),
 /*
  * NUMROW
@@ -150,7 +150,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      |      |      |      |GAMING|      |                    |  F1  |  F2  |  F3  |  F4  |  F5  | F6   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |  ,   |      |-------.    ,-------|  ->  |  [   |  ]   |  6   |  =   |      |
+ * |   [  |      |      |      |  ,   |      |-------.    ,-------|  ->  |  [   |  ]   |  6   |  =   |  ]   |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
  * |      |      |      |      |      |      |-------|    |-------|      |  1   |  2   |  3   |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
@@ -161,7 +161,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_SYM2] = LAYOUT(
             KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12,
             KC_NO, KC_NO, KC_NO, KC_NO, TG(_GAMING), KC_NO, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6,
-            KC_NO, KC_NO, KC_NO, KC_NO, KC_COMM, KC_NO, FS_ARR, KC_LBRC, KC_RBRC, KC_P6, KC_PEQL, KC_NO, 
+            LCTL_T(KC_LBRC), KC_NO, KC_NO, KC_NO, KC_COMM, KC_NO, FS_ARR, KC_LBRC, KC_RBRC, KC_P6, KC_PEQL, LT(_NAV,KC_RBRC), 
             KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_P1, KC_P2, KC_P3, KC_NO, KC_NO, 
             KC_NO, KC_NO, KC_NO, KC_NO, MO(_NUMROW), MO(_LINUXSYM), KC_NO, KC_P0, KC_PDOT, KC_TRNS
             ),
