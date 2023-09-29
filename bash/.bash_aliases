@@ -27,9 +27,9 @@ elif hash vim 2>/dev/null; then
     alias vi="vim --noplugin"
 fi
 
-alias ls="exa"
-alias ll="exa -lahg"
-alias l="exa"
+alias ls="eza"
+alias ll="eza -lahg"
+alias l="eza"
 alias btconn="bluetoothctl connect AC:12:2F:8E:FB:D9" 
 alias qn="quicknote"
 alias btdisconn="bluetoothctl disconnect AC:12:2F:8E:FB:D9" 
