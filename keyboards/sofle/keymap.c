@@ -152,7 +152,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |   [  |      |      |      |  ,   |      |-------.    ,-------|  ->  |  [   |  ]   |  6   |  =   |  ]   |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------|    |-------|      |  1   |  2   |  3   |      |      |
+ * |      |      |      |      |      |      |-------|    |-------|      |  {   |  }   |  3   |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *            |      |      |      |      | /NUMROW /       \LINSYM\  |      |  0   |  .   |TRNS  |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
@@ -162,7 +162,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12,
             KC_NO, KC_NO, KC_NO, KC_NO, TG(_GAMING), KC_NO, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6,
             LCTL_T(KC_LBRC), KC_NO, KC_NO, KC_NO, KC_COMM, KC_NO, FS_ARR, KC_LBRC, KC_RBRC, KC_P6, KC_PEQL, LT(_NAV,KC_RBRC), 
-            KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_P1, KC_P2, KC_P3, KC_NO, KC_NO, 
+            KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_LCBR, KC_RCBR, KC_P3, KC_NO, KC_NO, 
             KC_NO, KC_NO, KC_NO, KC_NO, MO(_NUMROW), MO(_LINUXSYM), KC_NO, KC_P0, KC_PDOT, KC_TRNS
             ),
 /* 
