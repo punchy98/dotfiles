@@ -1,3 +1,6 @@
 [user]
 	email = michael@maldonado.tech
 	name = Michael Maldonado
+[alias]
+    tag-latest = "!git tag -f latest $(git rev-parse HEAD) && git push origin -f latest"
+	update-tag = "!git tag --delete latest && git push --delete origin latest && git checkout master && git tag latest && git push && git push origin latest"
