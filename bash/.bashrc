@@ -19,8 +19,7 @@ source ~/.bash_prompt
 source ~/.bash_functions
 source ~/.bash_aliases
 #-------------------------------BEGIN CUSTOM--------------------------------------#
-#---- BEGIN HISTORY MODIFICATIONS ----#
-# Don't put duplicate lines or lines starting with space in the history
+#---- BEGIN HISTORY MODIFICATIONS ----# Don't put duplicate lines or lines starting with space in the history
 HISTCONTROL="erasedups:ignoreboth"
 # Commands that don't need to get recorded
 export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history"
@@ -59,4 +58,5 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
 
