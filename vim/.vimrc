@@ -126,4 +126,25 @@ fu! ToggleCurline ()
   endif
 endfunction
 
+"toggle numbering for copypasting
+fu! ToggleNumbering ()
+  if &number && &relativenumber
+    set nonumber
+    set norelativenumber
+  else
+    set number
+    set relativenumber
+  endif
+endfunction
+
+"toggle setpaste
+fu! ToggleSetPaste ()
+  if  &paste
+    set nopaste
+  else
+    set paste
+  endif
+endfunction
 nnoremap <leader>col :call ToggleCurline()<CR>
+nnoremap <leader>n :call ToggleNumbering()<CR>
+nnoremap <leader>sp :call ToggleSetPaste()<CR>
