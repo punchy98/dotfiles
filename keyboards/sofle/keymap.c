@@ -40,6 +40,7 @@ enum combos {
   CV_PASTE,
   XV_CUT,
   XCV_PASTE,
+  SPOTLIGHT,
 // AS_BACKSPACE,
 //  SD_DELETE,
 };
@@ -48,14 +49,16 @@ const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM cv_combo[] = {KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM xv_combo[] = {KC_X, KC_V, COMBO_END};
 const uint16_t PROGMEM xcv_combo[] = {KC_X, KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM spotlight_combo[] = {KC_LCTL, KC_O, COMBO_END};
 //const uint16_t PROGMEM as_combo[] = {KC_A, KC_S, COMBO_END};
 //const uint16_t PROGMEM sd_combo[] = {KC_S, KC_D, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-  [XC_COPY] = COMBO(xc_combo, LCTL(KC_C)),
-  [CV_PASTE] = COMBO(cv_combo, LCTL(KC_V)),
-  [XV_CUT] = COMBO(xv_combo, LCTL(KC_X)),
+  [XC_COPY] = COMBO(xc_combo, LGUI(KC_C)),
+  [CV_PASTE] = COMBO(cv_combo, LGUI(KC_V)),
+  [XV_CUT] = COMBO(xv_combo, LGUI(KC_X)),
   [XCV_PASTE] = COMBO(xcv_combo, KC_MS_BTN2),
+  [SPOTLIGHT] = COMBO(spotlight_combo, LGUI(KC_SPC))
 //  [AS_BACKSPACE] = COMBO(as_combo, KC_BSPC),
 //  [SD_DELETE] = COMBO(sd_combo, KC_DEL),
 };
@@ -95,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             QK_GESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS,
             KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, 
             CW_TOGG, KC_A, KC_S, LT(_SYM2,KC_D), LT(_NAV,KC_F), KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, 
-            SC_LSPO, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_MUTE, SGUI(KC_S), KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, SC_RSPC, 
+            SC_LSPO, KC_Z, KC_X, KC_C, KC_V, KC_B, LSG(KC_A), SGUI(KC_S), KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, SC_RSPC, 
             KC_LGUI, KC_LALT ,KC_LCTL , KC_SPC, LT(_NUMROW,KC_HOME), LT(_LINUXSYM,KC_END), KC_ENT, LT(_NAV,KC_DEL), KC_INS, KC_DEL
             ),
 /*
