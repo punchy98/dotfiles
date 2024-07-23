@@ -39,6 +39,9 @@ enum combos {
   XC_COPY,
   CV_PASTE,
   XV_CUT,
+  XC_COPY_MAC,
+  CV_PASTE_MAC,
+  XV_CUT_MAC,
   XCV_PASTE,
   SPOTLIGHT,
 // AS_BACKSPACE,
@@ -54,11 +57,14 @@ const uint16_t PROGMEM spotlight_combo[] = {KC_LCTL, KC_O, COMBO_END};
 //const uint16_t PROGMEM sd_combo[] = {KC_S, KC_D, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-  [XC_COPY] = COMBO(xc_combo, LGUI(KC_C)),
-  [CV_PASTE] = COMBO(cv_combo, LGUI(KC_V)),
-  [XV_CUT] = COMBO(xv_combo, LGUI(KC_X)),
+  [XC_COPY] = COMBO(xc_combo, LCTL(KC_C)),
+  [CV_PASTE] = COMBO(cv_combo, LCTL(KC_V)),
+  [XV_CUT] = COMBO(xv_combo, LCTL(KC_X)),
   [XCV_PASTE] = COMBO(xcv_combo, KC_MS_BTN2),
-  [SPOTLIGHT] = COMBO(spotlight_combo, LGUI(KC_SPC))
+  [SPOTLIGHT] = COMBO(spotlight_combo, LGUI(KC_SPC)),
+  [XC_COPY_MAC] = COMBO(xc_combo, LGUI(KC_C)),
+  [CV_PASTE_MAC] = COMBO(cv_combo, LGUI(KC_V)),
+  [XV_CUT_MAC] = COMBO(xv_combo, LGUI(KC_X))
 //  [AS_BACKSPACE] = COMBO(as_combo, KC_BSPC),
 //  [SD_DELETE] = COMBO(sd_combo, KC_DEL),
 };
@@ -98,7 +104,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             QK_GESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS,
             KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, 
             CW_TOGG, KC_A, KC_S, LT(_SYM2,KC_D), LT(_NAV,KC_F), KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, 
-            SC_LSPO, KC_Z, KC_X, KC_C, KC_V, KC_B, LSG(KC_A), SGUI(KC_S), KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, SC_RSPC, 
+            SC_LSPO, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_MUTE, SGUI(KC_S), KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, SC_RSPC, 
             KC_LGUI, KC_LALT ,KC_LCTL , KC_SPC, LT(_NUMROW,KC_HOME), LT(_LINUXSYM,KC_END), KC_ENT, LT(_NAV,KC_DEL), KC_INS, KC_DEL
             ),
 /*
@@ -151,9 +157,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |      |      |      |      |      |                    |  F7  |  F8  |  F9  |  F10 |  F11 | F12  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |GAMING|      |                    |  F1  |  F2  |  F3  |  F4  |  F5  | F6   |
+ * |      |      |      |      |MACOS |      |                    |  F1  |  F2  |  F3  |  F4  |  F5  | F6   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |   [  |      |      |      |  ,   |      |-------.    ,-------|  ->  |  [   |  ]   |  6   |  =   |  ]   |
+ * |   [  |      |      |      |  ,   |NORMAL|-------.    ,-------|  ->  |  [   |  ]   |  6   |  =   |  ]   |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
  * |      |      |      |      |      |      |-------|    |-------|      |  {   |  }   |  3   |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
@@ -163,8 +169,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 	[_SYM2] = LAYOUT(
             KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12,
-            KC_NO, KC_NO, KC_NO, KC_NO, TG(_GAMING), KC_NO, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6,
-            LCTL_T(KC_LBRC), KC_NO, KC_NO, KC_NO, KC_COMM, KC_NO, FS_ARR, KC_LBRC, KC_RBRC, KC_P6, KC_PEQL, LT(_NAV,KC_RBRC), 
+            KC_NO, KC_NO, KC_NO, KC_NO, DF(_MACOS), KC_NO, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6,
+            LCTL_T(KC_LBRC), KC_NO, KC_NO, KC_NO, KC_COMM, DF(_QWERTY), FS_ARR, KC_LBRC, KC_RBRC, KC_P6, KC_PEQL, LT(_NAV,KC_RBRC), 
             KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_LCBR, KC_RCBR, KC_P3, KC_NO, KC_NO, 
             KC_NO, KC_NO, KC_NO, KC_NO, MO(_NUMROW), MO(_LINUXSYM), KC_NO, KC_P0, KC_PDOT, KC_TRNS
             ),
@@ -177,41 +183,41 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      |  !   |   ~  |  <   |  >   |  #   |-------.    ,-------|  $   |  *   |PSITEM|   \  | UPDIR|      |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
- * |SHIFT |      |   /  |  <<  |  >>  |      |-------|    |-------|  |   | UPDIR|   \  |SHBANG|      |      |
+ * |SHIFT |      |   /  |  <<  |  >>  |  ~   |-------|    |-------|  |   | UPDIR|   \  |SHBANG|      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *            |      |      |      |      | /NUMROW /       \LINSYM\  |      |      |      |      |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *             `----------------------------------'           '------''---------------------------'
  */
 	[_LINUXSYM] = LAYOUT(
-            KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+            KC_GRV, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
             KC_GRV, KC_AT, KC_AMPR, KC_EQL, KC_PLUS, KC_PERC, KC_CIRC, PGREP, BRACES, KC_LBRC, KC_RBRC, KC_BSPC,
             KC_NO, KC_EXLM, KC_TILD, KC_LT, KC_GT, KC_HASH, KC_DLR, KC_ASTR, PS_ITEM, KC_BSLS, UPDIR, KC_NO,
-            KC_LSFT, KC_NO, KC_SLSH, REV2ARR, DOUBLEARR, KC_NO, KC_NO, KC_NO, KC_PIPE, UPDIR, KC_BSLS, SHEBANG,KC_NO, KC_NO, 
+            KC_LSFT, KC_NO, KC_SLSH, REV2ARR, DOUBLEARR, KC_TILD, KC_NO, KC_NO, KC_PIPE, UPDIR, KC_BSLS, SHEBANG,KC_NO, KC_NO, 
             KC_NO, KC_NO, KC_NO, KC_NO, MO(_NUMROW), MO(_LINUXSYM), KC_NO, KC_NO, KC_NO, KC_NO
             ),
 /*
- * GAMING
+ * MACOS
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |`~Esc |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |  -_  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | TAB  |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  | Bspc |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |Caps W|   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   ;  |  '   |
- * |------+------+------+------+------+------| MUTE  |    |GAMMING|------+------+------+------+------+------|
+ * |------+------+------+------+------+------|MUTEZM |    |ScreenS|------+------+------+------+------+------|
  * |LShft(|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |RShft)|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | Win  | ALT  | LCTL | Space| /       /       \      \  |Enter |HOME  | END  |DELETE|
- *            |      |      |      |      |/NUMROW /         \LINSYM\ |      |      |      |      |
+ *            | GUI  | ALT  | LCTL | Space| /Home   /       \End   \  |Enter |DELETE|INSERT|DELETE|
+ *            |      |      |      |      |/ NUMROW/         \LSYM  \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
-	[_GAMING] = LAYOUT(
-            QK_GESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS, 
+	[_MACOS] = LAYOUT(
+            KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS,
             KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, 
-            CW_TOGG, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, 
-            SC_LSPO, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_MUTE, TG(_GAMING), KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, SC_RSPC, 
-            KC_LGUI, KC_LALT, KC_LCTL, KC_SPC, MO(_NUMROW), MO(_LINUXSYM), KC_ENT, KC_HOME, KC_END, KC_DEL
-            )
+            CW_TOGG, KC_A, KC_S, LT(_SYM2,KC_D), LT(_NAV,KC_F), KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, 
+            SC_LSPO, KC_Z, KC_X, KC_C, KC_V, KC_B, LSG(KC_A), SGUI(KC_S), KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, SC_RSPC, 
+            KC_LGUI, KC_LALT ,KC_LCTL , KC_SPC, LT(_NUMROW,KC_HOME), LT(_LINUXSYM,KC_END), KC_ENT, LT(_NAV,KC_DEL), KC_INS, KC_DEL
+            ),
 };
 
 #ifdef OLED_ENABLE
@@ -245,8 +251,8 @@ static void print_status_narrow(void) {
         case _SYM2:
             oled_write_P(PSTR("NPD\n"), false);
             break;
-        case _GAMING:
-            oled_write_P(PSTR("GAME\nMODE\n"), false);
+        case _MACOS:
+            oled_write_P(PSTR("MAC\nMODE\n"), false);
             break;
         default:
             oled_write_ln_P(PSTR("Undef"), false);

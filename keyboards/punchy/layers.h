@@ -6,5 +6,5 @@ enum layers {
     _NAV,
     _SYM2,
     _LINUXSYM,
-    _GAMING,
+    _MACOS,
 };
