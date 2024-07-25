@@ -69,6 +69,53 @@ combo_t key_combos[COMBO_COUNT] = {
 //  [SD_DELETE] = COMBO(sd_combo, KC_DEL),
 };
 
+bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
+    /* Disable combo `SOME_COMBO` on layer `_LAYER_A` */
+    switch (combo_index) {
+        case XC_COPY_MAC:
+            if (layer_state_is(_MACOS)) {
+                return true;
+            }
+            return false;
+        case CV_PASTE_MAC:
+            if (layer_state_is(_MACOS)) {
+                return true;
+            }
+            return false;
+        case XV_CUT_MAC:
+            if (layer_state_is(_MACOS)) {
+                return true;
+            }
+            return false;
+        case SPOTLIGHT:
+            if (layer_state_is(_MACOS)) {
+                return true;
+            }
+            return false;
+        case XCV_PASTE:
+            if (layer_state_is(_QWERTY)) {
+                return true;
+            }
+            return false;
+        case XC_COPY:
+            if (layer_state_is(_QWERTY)) {
+                return true;
+            }
+            return false;
+        case CV_PASTE:
+            if (layer_state_is(_QWERTY)) {
+                return true;
+            }
+            return false;
+        case XV_CUT:
+            if (layer_state_is(_QWERTY)) {
+                return true;
+            }
+            return false;
+    }
+
+    return true;
+}
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* BEGIN
  * EMPTYTEMPLATE
@@ -100,7 +147,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *            |      |      |      |      |/ NUMROW/         \LSYM  \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
-	[0] = LAYOUT(
+	[_QWERTY] = LAYOUT(
             QK_GESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS,
             KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, 
             CW_TOGG, KC_A, KC_S, LT(_SYM2,KC_D), LT(_NAV,KC_F), KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, 
@@ -237,7 +284,7 @@ static void print_status_narrow(void) {
     oled_write_ln_P(PSTR("LAYER"), false);
     switch (get_highest_layer(layer_state)) {
         case _QWERTY:
-            oled_write_P(PSTR("Base\n"), false);
+            oled_write_P(PSTR("QWERTY\n"), false);
             break;
         case _LINUXSYM:
             oled_write_P(PSTR("LINUX"), false);
@@ -249,10 +296,10 @@ static void print_status_narrow(void) {
             oled_write_P(PSTR("NAV\n"), false);
             break;
         case _SYM2:
-            oled_write_P(PSTR("NPD\n"), false);
+            oled_write_P(PSTR("SYM2\n"), false);
             break;
         case _MACOS:
-            oled_write_P(PSTR("MAC\nMODE\n"), false);
+            oled_write_P(PSTR("MAC\n"), false);
             break;
         default:
             oled_write_ln_P(PSTR("Undef"), false);
