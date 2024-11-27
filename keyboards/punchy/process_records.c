@@ -103,9 +103,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
         }
-        case UPDIR: {
+        case FIXURL: {
             if (record->event.pressed) {
-                SEND_STRING("../");
+                SEND_STRING("[.]");
             }
             return false;
         }

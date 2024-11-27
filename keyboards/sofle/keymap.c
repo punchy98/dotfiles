@@ -172,9 +172,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |   `  |   @  |   &  |   =  |   +  |  %   |                    |   ^  | PGREP|BRACES|   [  |   ]  | BSPC |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |  !   |   ~  |  <   |  >   |  #   |-------.    ,-------|  $   |  *   |PSITEM|   \  | UPDIR|      |
+ * |      |  !   |   ~  |  <   |  >   |  #   |-------.    ,-------|  $   |  *   |PSITEM|   \  |FIXURL|      |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
- * |SHIFT |      |   /  |  <<  |  >>  |      |-------|    |-------|  |   | UPDIR|   \  |SHBANG|      |      |
+ * |SHIFT |      |   /  |  <<  |  >>  |      |-------|    |-------|  |   |FIXURL|   \  |SHBANG|      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *            |      |      |      |      | /NUMROW /       \LINSYM\  |      |      |      |      |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
@@ -183,8 +183,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_LINUXSYM] = LAYOUT(
             KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
             KC_GRV, KC_AT, KC_AMPR, KC_EQL, KC_PLUS, KC_PERC, KC_CIRC, PGREP, BRACES, KC_LBRC, KC_RBRC, KC_BSPC,
-            KC_NO, KC_EXLM, KC_TILD, KC_LT, KC_GT, KC_HASH, KC_DLR, KC_ASTR, PS_ITEM, KC_BSLS, UPDIR, KC_NO,
-            KC_LSFT, KC_NO, KC_SLSH, REV2ARR, DOUBLEARR, KC_NO, KC_NO, KC_NO, KC_PIPE, UPDIR, KC_BSLS, SHEBANG,KC_NO, KC_NO, 
+            KC_NO, KC_EXLM, KC_TILD, KC_LT, KC_GT, KC_HASH, KC_DLR, KC_ASTR, PS_ITEM, KC_BSLS, FIXURL, KC_NO,
+            KC_LSFT, KC_NO, KC_SLSH, REV2ARR, DOUBLEARR, FIXURL, KC_NO, KC_NO, KC_PIPE, FIXURL, KC_BSLS, SHEBANG,KC_NO, KC_NO, 
             KC_NO, KC_NO, KC_NO, KC_NO, MO(_NUMROW), MO(_LINUXSYM), KC_NO, KC_NO, KC_NO, KC_NO
             ),
 /*

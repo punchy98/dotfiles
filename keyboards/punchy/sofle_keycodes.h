@@ -17,7 +17,7 @@ enum userspace_custom_keycodes {
     FS_PIPE,               // |>        (F# pipe operator)
     FS_ARR,                // ->        (F# lambda / pattern matching)
     SHEBANG,               // #!
-    UPDIR,
+    FIXURL,
     DOUBLEARR,
     REV2ARR,
     PGREP,
