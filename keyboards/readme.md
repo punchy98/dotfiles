@@ -31,16 +31,6 @@ sofle - configs specifically for sofle split keyboard
  |PGREP      | \| grep  |
  |FIXURL     | [.]     |
 
-##### Secrets Macros
-Uses a variation of drasna's Secrets macro.  
-
-SECR1  
-SECR2  
-SECR3  
-SECR4  
-SECR5  
-SECR6  
-SECR7  
 
 
 ### Layouts
