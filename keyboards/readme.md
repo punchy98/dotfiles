@@ -29,6 +29,7 @@ sofle - configs specifically for sofle split keyboard
  |DOUBLEARR  | >>      |
  |REV2ARR    | <<      |
  |PGREP      | \| grep  |
+ |FIXURL     | [.]     |
 
 ##### Secrets Macros
 Uses a variation of drasna's Secrets macro.  
